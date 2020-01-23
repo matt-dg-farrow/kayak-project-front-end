@@ -1,4 +1,4 @@
-const pathURL = "http://3.9.36.142:8383/KayakProject/";
+const pathURL = "KayakProject/";
 
 const equipmentData =
   // axios.get("http://localhost:8080/getEquipment")
