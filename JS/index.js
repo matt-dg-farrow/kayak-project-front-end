@@ -1,6 +1,8 @@
+const pathURL = "http://3.9.36.142:8383/KayakProject/";
+
 const equipmentData =
   // axios.get("http://localhost:8080/getEquipment")
-  axios.get("/KayakProject/getEquipment")
+  axios.get(pathURL + "getEquipment")
   .then((response) => {
     console.log(response.data);
     return response.data;
@@ -13,7 +15,7 @@ const equipmentData =
 
 const customerData =
   // axios.get("http://localhost:8080/getAllCustomers")
-  axios.get("/KayakProject/getAllCustomers")
+  axios.get(pathURL + "getAllCustomers")
   .then((response) => {
     console.log(response.data);
     return response.data;
@@ -84,7 +86,7 @@ function getCustomerInfo() {
 function getCapacity() {
   let circle = document.getElementById("safety-circle");
   // axios.get("http://localhost:8080/getCapacity")
-  axios.get("/KayakProject/getCapacity")
+  axios.get(pathURL + "getCapacity")
     .then((response) => {
       console.log(response.data);
       capacityText.innerHTML = response.data + "/300";
@@ -165,7 +167,7 @@ function addEquipmentToCust() {
     }
     console.log(equipToBeSaved);
     // axios.patch("http://localhost:8080/rentEquip/" + custData[0].innerHTML, equipToBeSaved)
-    axios.patch("/KayakProject/rentEquip/" + custData[0].innerHTML, equipToBeSaved)
+    axios.patch(pathURL + "rentEquip/" + custData[0].innerHTML, equipToBeSaved)
       .then(response => {
         console.log(response);
         alert("Customer " + custData[1].innerHTML + " " + custData[2].innerHTML + "'s equipment saved.");
@@ -183,7 +185,7 @@ function addEquipmentToCust() {
 function setStock() {
   let equipmentStock = document.getElementsByClassName("stock-number");
   // axios.get("http://localhost:8080/getStock")
-  axios.get("/KayakProject/getStock")
+  axios.get(pathURL + "getStock")
     .then(response => {
       console.log(response);
       equipmentStock[0].innerHTML = response.data[0];
@@ -228,7 +230,7 @@ function addCustomer() {
   if (failure != 1) {
     if (capacityText.innerText != "300/300") {
       // axios.post("http://localhost:8080/createCustomer", {
-      axios.post('/KayakProject/createCustomer', {
+      axios.post(pathURL + 'createCustomer', {
         custFirstName: newCustFirstName,
         custSurname: newCustSurname,
         emergFirstName: newEmergFirstName,
@@ -254,7 +256,7 @@ function deleteCustomer() {
     let id = document.getElementsByClassName("selected")[0].childNodes[0].innerHTML;
     if (confirm("Are you sure you want to delete this customer?")) {
       // axios.delete("http://localhost:8080/deleteCustomer/" + id)
-      axios.delete("/KayakProject/deleteCustomer/" + id)
+      axios.delete(pathURL + "deleteCustomer/" + id)
         .then(response => {
           console.log(response);
           alert("Customer deleted.");
@@ -270,7 +272,7 @@ function deleteCustomer() {
 function deleteAll() {
   if (confirm("Are you sure you want to delete all customers?")) {
     // axios.delete("http://localhost:8080/deleteAllCustomers")
-    axios.delete("/KayakProject/deleteAllCustomers")
+    axios.delete(pathURL + "deleteAllCustomers")
       .then(response => {
         console.log(response);
         alert("All customers deleted.");
