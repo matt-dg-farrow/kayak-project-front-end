@@ -9,7 +9,7 @@ pipeline {
         stage('--Dockerise--') {
               steps {
                     withDockerRegistry([ credentialsId: "docker-login", url: "" ]) {
-                    sh "docker push 9953136/app-matt-front-end-master"
+                    sh "docker push 9953136/app-matt-front-end"
                     }
               }
          }
