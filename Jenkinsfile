@@ -10,7 +10,7 @@ pipeline {
               steps {
                     withDockerRegistry([ credentialsId: "docker-login", url: "" ]) {
                     sh "docker push 9953136/app-matt-front-end"
-                    sh "docker image prune"
+                    sh "docker image prune -f"
                     }
               }
          }
