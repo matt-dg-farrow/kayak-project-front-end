@@ -1,3 +1,5 @@
+body {background-color:  #3ca1c3;}
+
 .navbar-brand {
     font-size: 29px;
     margin-left: 1rem;
@@ -122,3 +124,4 @@ hr {
     margin: 1rem;
     width: 12rem;
 }
+
